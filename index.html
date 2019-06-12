@@ -109,8 +109,8 @@
     font-size: 0.875em;
   }
 </style>
-<script src="https://unpkg.com/turndown/dist/turndown.js"></script>
-<script src="https://unpkg.com/turndown-plugin-gfm/dist/turndown-plugin-gfm.js"></script>
+<script src="./dist/turndown.js"></script>
+<script src="./dist/turndown-plugin-gfm.js"></script>
 </head>
 <body>
 <header>
@@ -170,8 +170,9 @@ console.log(
       <td colspan="2">Table Foot</td>
     </tr>
   </tfoot>
-</table>     
-     
+</table>
+
+
 <ul>
   <li>headingStyle (setext or atx)</li>
   <li>horizontalRule (*, -, or _)</li>
@@ -276,14 +277,14 @@ console.log(
     var output = document.getElementById('output')
     var optionsForm = document.getElementById('options')
     var gfm = turndownPluginGfm.gfm
-    var turndownService = new window.TurndownService(options())
+    var turndownService = new window.TurndownService()
     turndownService.use(gfm)
 
     input.addEventListener('input', update)
 
     optionsForm.addEventListener('change', function () {
       var gfm = turndownPluginGfm.gfm
-      turndownService = new window.TurndownService(options())
+      turndownService = new window.TurndownService()
       turndownService.use(gfm)
       update()
     })
