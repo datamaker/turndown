@@ -110,6 +110,7 @@
   }
 </style>
 <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
+<script src="https://unpkg.com/turndown-plugin-gfm/dist/turndown-plugin-gfm.js"></script>
 </head>
 <body>
 <header>
@@ -238,7 +239,10 @@ console.log(
     var input = document.getElementById('input')
     var output = document.getElementById('output')
     var optionsForm = document.getElementById('options')
+    var turndownPluginGfm = new window.turndownPluginGfm()
+    var gfm = turndownPluginGfm.gfm
     var turndownService = new window.TurndownService(options())
+    turndownService.use(gfm)
 
     input.addEventListener('input', update)
 
