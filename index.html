@@ -239,7 +239,6 @@ console.log(
     var input = document.getElementById('input')
     var output = document.getElementById('output')
     var optionsForm = document.getElementById('options')
-    var turndownPluginGfm = new window.turndownPluginGfm()
     var gfm = turndownPluginGfm.gfm
     var turndownService = new window.TurndownService(options())
     turndownService.use(gfm)
@@ -247,7 +246,9 @@ console.log(
     input.addEventListener('input', update)
 
     optionsForm.addEventListener('change', function () {
+      var gfm = turndownPluginGfm.gfm
       turndownService = new window.TurndownService(options())
+      turndownService.use(gfm)
       update()
     })
 
